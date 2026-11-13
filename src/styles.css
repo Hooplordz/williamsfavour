@@ -1,0 +1,286 @@
+@import 'tailwindcss' source('../src');
+@import '@fontsource-variable/big-shoulders-display/wght';
+@import '@fontsource-variable/manrope/wght.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+@plugin "tailwindcss-animate";
+
+/* ─── Brand tokens ─────────────────────────────────────────── */
+:root {
+  --ink: #090909; /* page black */
+  --charcoal: #141414; /* alternate sections */
+  --graphite: #1d1d1d; /* tiles, chips */
+  --bone: #ece8e0; /* primary text */
+  --ash: #8d8981; /* secondary text */
+  --line: #2b2a28; /* hairlines */
+  --signal: #ff6a2b; /* restrained accent */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-charcoal: var(--charcoal);
+  --color-graphite: var(--graphite);
+  --color-bone: var(--bone);
+  --color-ash: var(--ash);
+  --color-line: var(--line);
+  --color-signal: var(--signal);
+  --color-background: var(--ink);
+  --color-foreground: var(--bone);
+  --color-border: var(--line);
+  --font-heading: 'Big Shoulders Display Variable', 'Arial Narrow', sans-serif;
+  --font-body: 'Manrope Variable', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --container-8xl: 90rem;
+}
+
+@layer base {
+  * {
+    @apply border-line;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    background: var(--ink);
+    color-scheme: dark;
+  }
+  body {
+    @apply m-0 bg-ink font-body text-bone antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--signal);
+    color: var(--ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--signal);
+    outline-offset: 4px;
+  }
+}
+
+/* ─── Utilities ────────────────────────────────────────────── */
+.font-heading {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.005em;
+}
+
+/* Wall of tiny words used as texture (tiled SVG, very light). */
+.word-wall {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url('/texture-words.svg');
+  background-size: 1400px auto;
+  opacity: 0.07;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%);
+}
+.word-wall--full {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.word-wall--radial {
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, transparent 70%);
+  mask-image: radial-gradient(ellipse at center, #000 0%, transparent 70%);
+}
+
+/* Editorial double rule: thick line + hairline. */
+.double-rule {
+  border-top: 4px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 4px;
+}
+
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--bone);
+}
+
+/* Scroll progress bar (CSS scroll-driven where supported). */
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 2px;
+  z-index: 60;
+  background: var(--signal);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: progress linear both;
+    animation-timeline: scroll(root);
+  }
+}
+@keyframes progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ─── Intro (page load) animations ─────────────────────────── */
+@keyframes rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes circle-in {
+  from {
+    opacity: 0;
+    transform: scale(0.85) rotate(-8deg);
+    clip-path: circle(0% at 50% 50%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    clip-path: circle(50% at 50% 50%);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.intro-nav {
+  animation: fade-down 0.7s var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 70ms + 100ms);
+}
+.intro-letter {
+  display: inline-block;
+  animation: rise 0.9s var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 35ms + 250ms);
+}
+.intro-rise {
+  animation: fade-up 0.9s var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 120ms + 750ms);
+}
+.intro-circle {
+  animation: circle-in 1.3s var(--ease-out) both 0.35s;
+}
+.spin-slow {
+  animation: spin 40s linear infinite;
+}
+
+/* ─── Scroll-triggered reveals ─────────────────────────────── *
+ * Elements carry data-reveal="…"; useScrollReveal() adds
+ * data-shown once they enter the viewport. Hidden states only
+ * apply when JS is running (html.js) so content never vanishes.
+ */
+.js [data-reveal] {
+  transition:
+    opacity 0.9s var(--ease-out),
+    transform 0.9s var(--ease-out),
+    filter 0.9s var(--ease-out),
+    clip-path 1.1s var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+.js [data-reveal='up']:not([data-shown]) {
+  opacity: 0;
+  transform: translateY(2rem);
+}
+.js [data-reveal='stamp']:not([data-shown]) {
+  opacity: 0;
+  transform: scale(1.35);
+  filter: blur(8px);
+}
+.js [data-reveal='draw'] {
+  transform-origin: 0 50%;
+}
+.js [data-reveal='draw']:not([data-shown]) {
+  transform: scaleX(0);
+}
+.js [data-reveal='wipe']:not([data-shown]) {
+  clip-path: inset(0 0 100% 0);
+}
+.js [data-reveal='wipe'][data-shown] {
+  clip-path: inset(0 0 0 0);
+}
+/* Split-letter headings */
+.js [data-reveal='letters'] .letter {
+  display: inline-block;
+  transition: transform 0.8s var(--ease-out);
+  transition-delay: calc(var(--l, 0) * 30ms);
+}
+.js [data-reveal='letters']:not([data-shown]) .letter {
+  transform: translateY(105%);
+}
+
+/* ─── Marquees ─────────────────────────────────────────────── */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-time, 40s) linear infinite;
+}
+.marquee-track--reverse {
+  animation-direction: reverse;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Image hover */
+.media-zoom img {
+  transition:
+    transform 1.2s var(--ease-out),
+    filter 0.6s ease;
+}
+.media-zoom:hover img {
+  transform: scale(1.04);
+}
+
+/* Arrow buttons */
+.btn-arrow .arrow {
+  transition: transform 0.35s var(--ease-out);
+}
+.btn-arrow:hover .arrow {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .marquee-track,
+  .spin-slow {
+    animation: none !important;
+  }
+}
