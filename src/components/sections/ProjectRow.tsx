@@ -6,7 +6,7 @@ import { DoubleRule } from '../ui/DoubleRule'
 import { StackList } from '../ui/StackList'
 
 const statusLabel: Record<Project['status'], string> = {
-  sample: 'Sample placeholder',
+  sample: 'Project',
   'in-progress': 'In development',
   completed: 'Completed',
 }
