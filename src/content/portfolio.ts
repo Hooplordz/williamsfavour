@@ -53,10 +53,10 @@ export const hero = {
 export type Stat = { value: number | null; suffix?: string; label: string }
 
 export const stats: Stat[] = [
-  { value: null, suffix: '+', label: 'Years of hands-on engineering' },
-  { value: null, suffix: '', label: 'Projects designed & built' },
-  { value: null, suffix: '', label: 'Hardware prototypes' },
-  { value: null, suffix: '+', label: 'Technologies in the toolkit' },
+  { value: 3, suffix: '', label: 'Years of hands-on engineering' },
+  { value: 10, suffix: '', label: 'Projects designed & built' },
+  { value: 30, suffix: '', label: 'Hardware prototypes' },
+  { value: 50, suffix: '', label: 'Technology tools in the toolkit' },
 ]
 
 /* ── 3 · Moving text strip ────────────────────────────────── */
