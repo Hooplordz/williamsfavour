@@ -15,9 +15,10 @@ export function Work() {
           <div data-reveal="up" className="max-w-sm pb-2">
             <Eyebrow accent>Robotics · AI · IoT · Software</Eyebrow>
             <p className="mt-3 text-sm leading-relaxed text-bone/70">
-              The areas I build in. Entries marked “Sample placeholder” are templates waiting for real project details,
-              links and evidence.
-            </p>
+  A selection of engineering projects spanning robotics, artificial intelligence,
+  connected systems and software. Each project reflects a practical approach
+  to designing, building and applying technology.
+</p>
           </div>
         </div>
         <ul className="mt-12">
