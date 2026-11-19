@@ -1,14 +1,13 @@
+
 /**
  * ─────────────────────────────────────────────────────────────
- *  WILFA TECH · Favour Williams — all editable site content
+ * WILFA TECH · Favour Williams — all editable site content
  * ─────────────────────────────────────────────────────────────
- *  Everything a visitor reads lives in this one file.
- *  Edit the values below; the layout and animations adapt.
+ * Everything a visitor reads lives in this one file.
+ * Edit the values below; the layout and animations adapt.
  *
- *  Placeholders are deliberate. Anything set to `null` renders
- *  as a clearly-marked placeholder on the site until you supply
- *  the real value — nothing here claims an achievement that has
- *  not been provided.
+ * Placeholders are deliberate. Anything set to null renders
+ * as a clearly-marked placeholder until you supply the real value.
  */
 
 export const person = {
@@ -23,7 +22,7 @@ export const links = {
   email: 'williamsfavouroluwasemilore@gmail.com',
   github: 'https://github.com/Hooplordz',
   githubHandle: 'Hooplordz',
-  linkedin: null as string | null, // e.g. 'https://www.linkedin.com/in/your-handle'
+  linkedin: null as string | null,
 }
 
 export const navItems = [
@@ -34,23 +33,25 @@ export const navItems = [
 ]
 
 /* ── 1 · Introduction ─────────────────────────────────────── */
+
 export const hero = {
   eyebrow: 'Founder · WILFA TECH',
-  // Each string is one line of the giant headline.
   headline: ['Machines', 'that think'],
   intro:
     "I'm Favour Williams. I design and build at the meeting point of robotics, artificial intelligence, connected devices and software — from the first sketch to a working system.",
   primaryCta: { label: 'See my work', href: '#work' },
   secondaryCta: { label: 'Contact me', href: '#contact' },
-  ringText: 'Robotics · Artificial Intelligence · Internet of Things · Software Engineering · ',
+  ringText:
+    'Robotics · Artificial Intelligence · Internet of Things · Software Engineering · ',
 }
 
 /* ── 2 · By the numbers ───────────────────────────────────── */
-/**
- * Set `value` to a real number to enable the count-up animation.
- * While `value` is null the tile shows an "XX" placeholder.
- */
-export type Stat = { value: number | null; suffix?: string; label: string }
+
+export type Stat = {
+  value: number | null
+  suffix?: string
+  label: string
+}
 
 export const stats: Stat[] = [
   { value: 3, suffix: '', label: 'Years of hands-on engineering' },
@@ -60,6 +61,7 @@ export const stats: Stat[] = [
 ]
 
 /* ── 3 · Moving text strip ────────────────────────────────── */
+
 export const tickerItems = [
   'Robotics',
   'Artificial Intelligence',
@@ -70,17 +72,21 @@ export const tickerItems = [
 ]
 
 /* ── 4 · Selected work ────────────────────────────────────── */
+
 /**
- * status:
- *  - 'sample'      → placeholder entry (default, labelled on the site)
- *  - 'in-progress' → real project, still being built
- *  - 'completed'   → finished, evidence available (live / case study)
- * Set liveUrl / caseStudyUrl to null to show a "coming soon" state.
+ * Project status:
+ * 'sample'      → Placeholder entry
+ * 'in-progress' → Project still being built
+ * 'completed'   → Finished project
+ * 'planned'     → Project planned for development
  */
+
 export type ProjectStatus =
   | 'completed'
   | 'in-progress'
-  | 'planned';
+  | 'planned'
+  | 'sample'
+
 export type Project = {
   slug: string
   name: string
@@ -103,9 +109,18 @@ export const projects: Project[] = [
     role: 'Founder & lead engineer — edit to your actual role',
     description:
       'A connected home system that links sensors, lighting and climate control to a single hub, so a home can respond to the people living in it.',
-    stack: ['ESP32', 'C++', 'MQTT', 'Node.js', 'React', 'TypeScript', 'Home Assistant'],
+    stack: [
+      'ESP32',
+      'C++',
+      'MQTT',
+      'Node.js',
+      'React',
+      'TypeScript',
+      'Home Assistant',
+    ],
     image: '/img/smart-home.png',
-    imageAlt: 'Engraved illustration of a house cutaway with connected sensors and a central hub',
+    imageAlt:
+      'Engraved illustration of a house cutaway with connected sensors and a central hub',
     liveUrl: null,
     caseStudyUrl: null,
     status: 'sample',
@@ -117,9 +132,18 @@ export const projects: Project[] = [
     role: 'Robotics engineer — edit to your actual role',
     description:
       'A small mobile robot that maps its surroundings and plans its own path — exploring perception, navigation and motor control on real hardware.',
-    stack: ['ROS 2', 'Python', 'C++', 'OpenCV', 'LiDAR', 'Raspberry Pi', 'Arduino'],
+    stack: [
+      'ROS 2',
+      'Python',
+      'C++',
+      'OpenCV',
+      'LiDAR',
+      'Raspberry Pi',
+      'Arduino',
+    ],
     image: '/img/robotics.png',
-    imageAlt: 'Engraved illustration of a four-wheeled rover with a lidar dome and camera mast',
+    imageAlt:
+      'Engraved illustration of a four-wheeled rover with a lidar dome and camera mast',
     liveUrl: null,
     caseStudyUrl: null,
     status: 'sample',
@@ -131,9 +155,17 @@ export const projects: Project[] = [
     role: 'Systems & firmware engineer — edit to your actual role',
     description:
       'A network of low-power sensor nodes streaming environmental data to a live dashboard, with alerts when readings cross a threshold.',
-    stack: ['LoRaWAN', 'ESP32', 'MicroPython', 'InfluxDB', 'Grafana', 'Docker'],
+    stack: [
+      'LoRaWAN',
+      'ESP32',
+      'MicroPython',
+      'InfluxDB',
+      'Grafana',
+      'Docker',
+    ],
     image: '/img/iot-monitoring.png',
-    imageAlt: 'Engraved illustration of sensor nodes in a field connected wirelessly to a gateway',
+    imageAlt:
+      'Engraved illustration of sensor nodes in a field connected wirelessly to a gateway',
     liveUrl: null,
     caseStudyUrl: null,
     status: 'sample',
@@ -145,9 +177,18 @@ export const projects: Project[] = [
     role: 'AI & software engineer — edit to your actual role',
     description:
       'Software that puts machine learning to practical use — vision, language and prediction features wrapped in interfaces people actually enjoy.',
-    stack: ['Python', 'PyTorch', 'TensorFlow', 'FastAPI', 'React', 'TypeScript', 'LLM APIs'],
+    stack: [
+      'Python',
+      'PyTorch',
+      'TensorFlow',
+      'FastAPI',
+      'React',
+      'TypeScript',
+      'LLM APIs',
+    ],
     image: '/img/ai-apps.png',
-    imageAlt: 'Engraved illustration of a neural network forming a human head in profile',
+    imageAlt:
+      'Engraved illustration of a neural network forming a human head in profile',
     liveUrl: null,
     caseStudyUrl: null,
     status: 'sample',
@@ -155,30 +196,60 @@ export const projects: Project[] = [
 ]
 
 /* ── 5 · Technical expertise ──────────────────────────────── */
+
 export const expertise = [
   {
     domain: 'Robotics',
     line: 'Machines that sense, decide and move.',
-    skills: ['ROS 2', 'Kinematics', 'Motor control', 'Sensor fusion', 'CAD & prototyping', 'Embedded C/C++'],
+    skills: [
+      'ROS 2',
+      'Kinematics',
+      'Motor control',
+      'Sensor fusion',
+      'CAD & prototyping',
+      'Embedded C/C++',
+    ],
   },
   {
     domain: 'Artificial Intelligence',
     line: 'Models that turn data into decisions.',
-    skills: ['Machine learning', 'Computer vision', 'PyTorch', 'TensorFlow', 'NLP & LLMs', 'Data pipelines'],
+    skills: [
+      'Machine learning',
+      'Computer vision',
+      'PyTorch',
+      'TensorFlow',
+      'NLP & LLMs',
+      'Data pipelines',
+    ],
   },
   {
     domain: 'Internet of Things',
     line: 'Devices that talk to each other — reliably.',
-    skills: ['ESP32 & Arduino', 'Raspberry Pi', 'MQTT', 'LoRaWAN', 'Low-power design', 'Edge computing'],
+    skills: [
+      'ESP32 & Arduino',
+      'Raspberry Pi',
+      'MQTT',
+      'LoRaWAN',
+      'Low-power design',
+      'Edge computing',
+    ],
   },
   {
     domain: 'Software Engineering',
     line: 'Clean systems from firmware to front end.',
-    skills: ['TypeScript', 'React', 'Python', 'Node.js', 'REST & APIs', 'Git & CI'],
+    skills: [
+      'TypeScript',
+      'React',
+      'Python',
+      'Node.js',
+      'REST & APIs',
+      'Git & CI',
+    ],
   },
 ]
 
 /* ── 6 · About ────────────────────────────────────────────── */
+
 export const about = {
   heading: 'About',
   paragraphs: [
@@ -186,12 +257,27 @@ export const about = {
     'My work sits where four fields meet: robotics, artificial intelligence, the Internet of Things and software engineering. I enjoy the whole stack — soldering a sensor, writing the firmware, training the model and shipping the interface on top.',
     'I founded WILFA TECH to give that work a home: a studio for practical, well-engineered technology that solves real problems for real people, starting close to home and built to scale beyond it.',
   ],
-  // Replace the null values with your details — they show as placeholders until then.
   facts: [
-    { label: 'Education', value: 'Ladoke Akintola School of Technology' as string | null, hint: 'Add your institution & programme' },
-    { label: 'Based in', value: person.location, hint: 'Add your city & country' },
-    { label: 'Founded', value: 'WILFA TECH' as string | null, hint: '' },
-    { label: 'Focus', value: 'Robotics · AI · IoT · Software' as string | null, hint: '' },
+    {
+      label: 'Education',
+      value: 'Ladoke Akintola School of Technology' as string | null,
+      hint: 'Add your institution & programme',
+    },
+    {
+      label: 'Based in',
+      value: person.location,
+      hint: 'Add your city & country',
+    },
+    {
+      label: 'Founded',
+      value: 'WILFA TECH' as string | null,
+      hint: '',
+    },
+    {
+      label: 'Focus',
+      value: 'Robotics · AI · IoT · Software' as string | null,
+      hint: '',
+    },
   ],
   ambition:
     'The ambition: build intelligent machines and connected systems that are affordable, dependable and genuinely useful — and help grow the next generation of engineers along the way.',
@@ -202,10 +288,12 @@ export const about = {
 }
 
 /* ── 7 · Collaboration & contact ──────────────────────────── */
+
 export const collaborate = {
   kicker: 'Open to collaboration',
   headline: ['Got an idea that', 'needs to move,', 'sense or think?'],
-  body: "Whether it's a robot, a connected product, an AI feature or the software that ties it together — I'd love to hear about it. Research partners, startups, teams and fellow builders are all welcome.",
+  body:
+    "Whether it's a robot, a connected product, an AI feature or the software that ties it together — I'd love to hear about it. Research partners, startups, teams and fellow builders are all welcome.",
   points: [
     {
       title: 'Hardware and software, together',
