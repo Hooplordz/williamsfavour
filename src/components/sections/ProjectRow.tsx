@@ -1,5 +1,5 @@
+
 import type { Project } from '@/content/portfolio'
-import { cdn, cdnSrcSet } from '@/lib/image'
 import { cn } from '@/lib/utils'
 import { ArrowLink } from '../ui/ArrowLink'
 import { DoubleRule } from '../ui/DoubleRule'
@@ -71,16 +71,14 @@ export function ProjectRow({ project, index, total }: Props) {
           </div>
         </div>
 
-        <figure data-reveal="wipe" className={cn('media-zoom relative', flipped && 'md:order-1')}>
+        <figure className={cn('media-zoom relative', flipped && 'md:order-1')}>
           <div className="relative aspect-[4/3] overflow-hidden rounded-[3px] border border-line bg-graphite">
             <img
-              src={cdn(project.image, 900)}
-              srcSet={cdnSrcSet(project.image, [600, 900, 1200])}
-              sizes="(min-width: 48rem) 45vw, 92vw"
+              src={project.image}
               alt={project.imageAlt}
               width={1200}
               height={896}
-              loading="lazy"
+              loading="eager"
               decoding="async"
               className="size-full object-cover"
             />

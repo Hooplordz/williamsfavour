@@ -1,7 +1,7 @@
 import { __toESM } from "../_runtime.mjs";
-import { ArrowLink, DoubleRule, about, cn, collaborate, contact, expertise, hero, links, person, projects, stats, tickerItems } from "./router-Du22M35a.mjs";
+import { ArrowLink, DoubleRule, about, cn, collaborate, contact, expertise, hero, links, person, projects, stats, tickerItems } from "./router-BgDGQcQ3.mjs";
 import { require_jsx_runtime, require_react } from "../_libs/@tanstack/react-router+[...].mjs";
-// node_modules/.nitro/vite/services/ssr/assets/routes-BAHazncS.js
+// node_modules/.nitro/vite/services/ssr/assets/routes-C6aBsGke.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 /**
@@ -435,22 +435,15 @@ function ProjectRow({ project, index, total }) {
 				})
 			]
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("figure", {
-			"data-reveal": "wipe",
 			className: cn("media-zoom relative", flipped && "md:order-1"),
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "relative aspect-[4/3] overflow-hidden rounded-[3px] border border-line bg-graphite",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-					src: cdn(project.image, 900),
-					srcSet: cdnSrcSet(project.image, [
-						600,
-						900,
-						1200
-					]),
-					sizes: "(min-width: 48rem) 45vw, 92vw",
+					src: project.image,
 					alt: project.imageAlt,
 					width: 1200,
 					height: 896,
-					loading: "lazy",
+					loading: "eager",
 					decoding: "async",
 					className: "size-full object-cover"
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {

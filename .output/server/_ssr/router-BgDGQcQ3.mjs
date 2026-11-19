@@ -3,7 +3,7 @@ import { require_jsx_runtime, require_react } from "../_libs/@tanstack/react-rou
 import { HeadContent, Scripts, createFileRoute, createRootRoute, createRouter, lazyRouteComponent } from "../_libs/@tanstack/react-router+[2...].mjs";
 import { clsx } from "../_libs/clsx.mjs";
 import { twMerge } from "../_libs/tailwind-merge.mjs";
-// node_modules/.nitro/vite/services/ssr/assets/router-Du22M35a.js
+// node_modules/.nitro/vite/services/ssr/assets/router-BgDGQcQ3.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var __defProp = Object.defineProperty;
@@ -647,7 +647,7 @@ function RootDocument({ children }) {
 		] })]
 	});
 }
-var $$splitComponentImporter = () => import("./routes-BAHazncS.mjs");
+var $$splitComponentImporter = () => import("./routes-C6aBsGke.mjs");
 var rootRouteChildren = { IndexRoute: createFileRoute("/")({
 	head: () => ({ meta: [{ title: `${site.name} | Robotics, AI, IoT & Software Engineering` }] }),
 	component: lazyRouteComponent($$splitComponentImporter, "component")
