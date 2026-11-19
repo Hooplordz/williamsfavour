@@ -1,9 +1,17 @@
-/** Serve a public image through the Netlify Image CDN at a given width. */
-export function cdn(src: string, width: number, quality = 75) {
-  return `/.netlify/images?url=${encodeURIComponent(src)}&w=${width}&fm=webp&q=${quality}`
+
+/**
+ * Image helper for Vercel deployment.
+ * Images are served directly from the public directory.
+ */
+
+export function cdn(src: string, _width: number, _quality = 75) {
+  return src
 }
 
-/** Build a responsive srcset for the given widths. */
-export function cdnSrcSet(src: string, widths: number[]) {
-  return widths.map((w) => `${cdn(src, w)} ${w}w`).join(', ')
+/**
+ * Use the original image URL.
+ * Vercel will serve the original public asset.
+ */
+export function cdnSrcSet(_src: string, _widths: number[]) {
+  return ''
 }
