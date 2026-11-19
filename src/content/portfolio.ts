@@ -77,7 +77,10 @@ export const tickerItems = [
  *  - 'completed'   → finished, evidence available (live / case study)
  * Set liveUrl / caseStudyUrl to null to show a "coming soon" state.
  */
-export type ProjectStatus = 'completed',
+export type ProjectStatus =
+  | 'completed'
+  | 'in-progress'
+  | 'planned',
 
 export type Project = {
   slug: string
