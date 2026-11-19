@@ -3,7 +3,7 @@ import { require_jsx_runtime, require_react } from "../_libs/@tanstack/react-rou
 import { HeadContent, Scripts, createFileRoute, createRootRoute, createRouter, lazyRouteComponent } from "../_libs/@tanstack/react-router+[2...].mjs";
 import { clsx } from "../_libs/clsx.mjs";
 import { twMerge } from "../_libs/tailwind-merge.mjs";
-// node_modules/.nitro/vite/services/ssr/assets/router-CajgtGST.js
+// node_modules/.nitro/vite/services/ssr/assets/router-Du22M35a.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var __defProp = Object.defineProperty;
@@ -346,7 +346,7 @@ function SiteHeader() {
 		return () => window.removeEventListener("keydown", onKey);
 	}, [open]);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
-		className: cn("fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-500", scrolled || open ? "border-b border-line bg-ink/80 backdrop-blur-md" : "border-b border-transparent"),
+		className: cn("fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-500", scrolled || open ? "border-b border-line bg-ink/90 backdrop-blur-md shadow-sm" : "border-b border-transparent"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "mx-auto flex h-16 max-w-8xl items-center justify-between gap-6 px-4 md:h-[4.5rem] md:px-6",
 			children: [
@@ -356,7 +356,7 @@ function SiteHeader() {
 					style: { ["--i"]: 0 },
 					"aria-label": `${person.company} — home`,
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "font-heading text-[1.65rem] leading-none tracking-[0.16em] uppercase",
+						className: "font-heading text-[1.65rem] leading-none tracking-[0.16em] uppercase text-bone",
 						children: "Wilfa"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 						className: "font-mono text-[0.65rem] tracking-[0.3em] text-signal uppercase transition-colors group-hover:text-bone",
@@ -373,7 +373,7 @@ function SiteHeader() {
 							style: { ["--i"]: i + 1 },
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 								href: item.href,
-								className: "group relative font-heading text-[0.95rem] tracking-[0.16em] uppercase text-bone/80 transition-colors hover:text-bone",
+								className: "group relative font-heading text-[0.95rem] tracking-[0.16em] uppercase text-bone/80 transition-colors hover:text-signal",
 								children: [item.label, /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-signal transition-transform duration-500 group-hover:scale-x-100" })]
 							})
 						}, item.href))
@@ -394,7 +394,7 @@ function SiteHeader() {
 					"aria-expanded": open,
 					"aria-controls": "mobile-menu",
 					onClick: () => setOpen((o) => !o),
-					className: "intro-nav relative grid size-11 place-items-center rounded-full border border-line md:hidden",
+					className: "intro-nav relative grid size-11 place-items-center rounded-full border border-line bg-charcoal transition-colors hover:border-signal md:hidden",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 						"aria-hidden": "true",
 						className: "relative block h-2.5 w-5",
@@ -405,7 +405,7 @@ function SiteHeader() {
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			id: "mobile-menu",
 			inert: !open,
-			className: cn("fixed inset-x-0 top-16 bottom-0 overflow-y-auto bg-ink transition-[opacity,transform] duration-500 md:hidden", open ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-4 opacity-0"),
+			className: cn("fixed inset-x-0 top-16 bottom-0 overflow-y-auto border-t border-line bg-ink transition-[opacity,transform] duration-500 md:hidden", open ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-4 opacity-0"),
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", {
 				"aria-label": "Mobile",
 				className: "flex min-h-full flex-col justify-between px-4 pt-6 pb-10",
@@ -417,7 +417,7 @@ function SiteHeader() {
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 						href: item.href,
 						onClick: () => setOpen(false),
-						className: "flex items-baseline justify-between py-4 font-heading text-5xl uppercase",
+						className: "flex items-baseline justify-between py-4 font-heading text-5xl uppercase text-bone transition-colors hover:text-signal",
 						children: [item.label, /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 							className: "font-mono text-xs text-ash",
 							children: ["0", i + 1]
@@ -647,7 +647,7 @@ function RootDocument({ children }) {
 		] })]
 	});
 }
-var $$splitComponentImporter = () => import("./routes-cKwYO5Af.mjs");
+var $$splitComponentImporter = () => import("./routes-BAHazncS.mjs");
 var rootRouteChildren = { IndexRoute: createFileRoute("/")({
 	head: () => ({ meta: [{ title: `${site.name} | Robotics, AI, IoT & Software Engineering` }] }),
 	component: lazyRouteComponent($$splitComponentImporter, "component")

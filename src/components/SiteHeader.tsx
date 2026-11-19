@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react'
 import { navItems, person } from '@/content/portfolio'
 import { ArrowLink } from './ui/ArrowLink'
@@ -25,13 +26,24 @@ export function SiteHeader() {
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-500',
-        scrolled || open ? 'border-b border-line bg-ink/80 backdrop-blur-md' : 'border-b border-transparent',
+        scrolled || open
+          ? 'border-b border-line bg-ink/90 backdrop-blur-md shadow-sm'
+          : 'border-b border-transparent',
       )}
     >
       <div className="mx-auto flex h-16 max-w-8xl items-center justify-between gap-6 px-4 md:h-[4.5rem] md:px-6">
-        <a href="#top" className="intro-nav group flex items-baseline gap-2" style={{ ['--i' as string]: 0 }} aria-label={`${person.company} — home`}>
-          <span className="font-heading text-[1.65rem] leading-none tracking-[0.16em] uppercase">Wilfa</span>
-          <span className="font-mono text-[0.65rem] tracking-[0.3em] text-signal uppercase transition-colors group-hover:text-bone">Tech</span>
+        <a
+          href="#top"
+          className="intro-nav group flex items-baseline gap-2"
+          style={{ ['--i' as string]: 0 }}
+          aria-label={`${person.company} — home`}
+        >
+          <span className="font-heading text-[1.65rem] leading-none tracking-[0.16em] uppercase text-bone">
+            Wilfa
+          </span>
+          <span className="font-mono text-[0.65rem] tracking-[0.3em] text-signal uppercase transition-colors group-hover:text-bone">
+            Tech
+          </span>
         </a>
 
         <nav aria-label="Main" className="hidden md:block">
@@ -40,7 +52,7 @@ export function SiteHeader() {
               <li key={item.href} className="intro-nav" style={{ ['--i' as string]: i + 1 }}>
                 <a
                   href={item.href}
-                  className="group relative font-heading text-[0.95rem] tracking-[0.16em] uppercase text-bone/80 transition-colors hover:text-bone"
+                  className="group relative font-heading text-[0.95rem] tracking-[0.16em] uppercase text-bone/80 transition-colors hover:text-signal"
                 >
                   {item.label}
                   <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-signal transition-transform duration-500 group-hover:scale-x-100" />
@@ -62,7 +74,7 @@ export function SiteHeader() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((o) => !o)}
-          className="intro-nav relative grid size-11 place-items-center rounded-full border border-line md:hidden"
+          className="intro-nav relative grid size-11 place-items-center rounded-full border border-line bg-charcoal transition-colors hover:border-signal md:hidden"
         >
           <span aria-hidden="true" className="relative block h-2.5 w-5">
             <span className={cn('absolute left-0 h-0.5 w-5 bg-bone transition-transform duration-300', open ? 'top-1 rotate-45' : 'top-0')} />
@@ -75,7 +87,7 @@ export function SiteHeader() {
         id="mobile-menu"
         inert={!open}
         className={cn(
-          'fixed inset-x-0 top-16 bottom-0 overflow-y-auto bg-ink transition-[opacity,transform] duration-500 md:hidden',
+          'fixed inset-x-0 top-16 bottom-0 overflow-y-auto border-t border-line bg-ink transition-[opacity,transform] duration-500 md:hidden',
           open ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-4 opacity-0',
         )}
       >
@@ -86,7 +98,7 @@ export function SiteHeader() {
                 <a
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="flex items-baseline justify-between py-4 font-heading text-5xl uppercase"
+                  className="flex items-baseline justify-between py-4 font-heading text-5xl uppercase text-bone transition-colors hover:text-signal"
                 >
                   {item.label}
                   <span className="font-mono text-xs text-ash">0{i + 1}</span>

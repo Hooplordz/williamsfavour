@@ -36,6 +36,7 @@
   --container-8xl: 90rem;
 }
 
+/* ─── Base theme ──────────────────────────────────────────── */
 @layer base {
   * {
     @apply border-line;
@@ -44,13 +45,22 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
-    background: var(--ink);
+    background-color: var(--ink);
+    color: var(--bone);
     color-scheme: light;
   }
 
   body {
-    @apply m-0 bg-ink font-body text-bone antialiased;
+    @apply m-0 font-body antialiased;
+    background-color: var(--ink);
+    color: var(--bone);
     text-rendering: optimizeLegibility;
+  }
+
+  /* Keep the light theme consistent across the page */
+  main {
+    background-color: var(--ink);
+    color: var(--bone);
   }
 
   ::selection {
@@ -61,6 +71,19 @@
   :focus-visible {
     outline: 2px solid var(--signal);
     outline-offset: 4px;
+  }
+
+  input,
+  textarea,
+  select {
+    color: var(--bone);
+    background-color: var(--charcoal);
+    border-color: var(--line);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--ash);
   }
 }
 
@@ -79,7 +102,7 @@
   background-image: url('/texture-words.svg');
   background-size: 1400px auto;
   opacity: 0.055;
-  filter: brightness(0) saturate(100%);
+  filter: brightness(0) saturate(100%) invert(25%) sepia(15%) saturate(900%) hue-rotate(85deg);
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%);
   mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%);
 }
@@ -294,7 +317,7 @@
   transform: translateX(4px);
 }
 
-/* ─── Accessibility ────────────────────────────────────────── */
+/* ─── Accessibility ───────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

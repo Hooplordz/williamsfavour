@@ -1,7 +1,7 @@
 import { __toESM } from "../_runtime.mjs";
-import { ArrowLink, DoubleRule, about, cn, collaborate, contact, expertise, hero, links, person, projects, stats, tickerItems } from "./router-CajgtGST.mjs";
+import { ArrowLink, DoubleRule, about, cn, collaborate, contact, expertise, hero, links, person, projects, stats, tickerItems } from "./router-Du22M35a.mjs";
 import { require_jsx_runtime, require_react } from "../_libs/@tanstack/react-router+[...].mjs";
-// node_modules/.nitro/vite/services/ssr/assets/routes-cKwYO5Af.js
+// node_modules/.nitro/vite/services/ssr/assets/routes-BAHazncS.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 /**
