@@ -80,8 +80,7 @@ export const tickerItems = [
 export type ProjectStatus =
   | 'completed'
   | 'in-progress'
-  | 'planned',
-
+  | 'planned';
 export type Project = {
   slug: string
   name: string
